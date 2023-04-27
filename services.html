@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Social Media Marketing Banner</title>
+    <style>
+
+      
+    </style>
+  </head>
+  
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="mainbase.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="banner-container">
+      <img class="banner-image active" src="image6.avif">
+      <img class="banner-image" src="img5.avif">
+      <img class="banner-image" src="img5.avif">
+      <img class="banner-image" src="image4.jpg">
+<img class="banner-image" src="imgdemo1.avif">
+<div class="banner-navigation">
+<button class="banner-button active"></button>
+<button class="banner-button"></button>
+<button class="banner-button"></button>
+<button class="banner-button"></button>
+<button class="banner-button"></button>
+</div>
+</div>
+ <footer>
+      <p>&copy; 2023 Social Media Marketing Agency</p>
+    </footer>
+    </body>
+    <script>
+     // Get banner elements
+const bannerContainer = document.querySelector('.banner-container');
+const bannerImages = document.querySelectorAll('.banner-image');
+const bannerNavigation = document.querySelector('.banner-navigation');
+const bannerNavigationButtons = bannerNavigation.querySelectorAll('button');
+
+// Set banner variables
+let currentImageIndex = 0;
+let bannerInterval = setInterval(changeBannerImage, 3000);
+
+// Set banner navigation button event listeners
+bannerNavigationButtons.forEach((button, index) => {
+  button.addEventListener('click', () => {
+    clearInterval(bannerInterval);
+    currentImageIndex = index;
+    changeBannerImage();
+    bannerInterval = setInterval(changeBannerImage, 3000);
+  });
+});
+
+// Function to change banner image
+function changeBannerImage() {
+  bannerImages[currentImageIndex].classList.remove('active');
+  bannerNavigationButtons[currentImageIndex].classList.remove('active');
+  currentImageIndex = (currentImageIndex + 1) % bannerImages.length;
+  bannerImages[currentImageIndex].classList.add('active');
+  bannerNavigationButtons[currentImageIndex].classList.add('active');
+}
+
+   </script>
+</html>
